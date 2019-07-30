@@ -2,10 +2,43 @@
   <h2>Patients</h2>
   <div class="card border-primary mb-3" style="max-width: 90%;">
     <div class="card-header">
-      <button class="btn btn-primary btn-sm" type="button" name="button" routerLink="/clientes/create">Add New</button>
+      <button class="btn btn-primary btn-sm" type="button" name="button" routerLink="/patients/create">Add New</button>
     </div>
     <div class="card-body text-primary">
-
+      <table #dataTable class="display" style="width:100%">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Option</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let patient of patientList'>
+            <td>{{patient.pacientId}}</td>
+            <td>{{patient.name}}</td>
+            <td>{{patient.lastName}}</td>
+            <td>{{patient.age}}</td>
+            <td class="btn-group row">
+              <button class="btn btn-primary btn-sm " type="button" routerLink="/patient/update/{{patient.pacientId}}"
+                name="button"><i class="fas fa-pencil-alt"></i> Modificar </button>
+              <button (click)="delete(patient.id)" class="btn btn-danger btn-sm " type="button" name="button"><i
+                  class="far fa-trash-alt"></i> Eliminar </button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Option</th>
+          </tr>
+        </tfoot>
+      </table>
     </div>
   </div>
 </div>
