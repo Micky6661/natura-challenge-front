@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Patient } from './Patient';
-declare var $;
+import { Component, OnInit } from '@angular/core';
+import { PatientService } from './patient.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-patient',
@@ -9,21 +9,35 @@ declare var $;
 })
 export class PatientComponent implements OnInit {
 
-  @ViewChild('dataTable') table;
-  private dataTable: any;
+  constructor() {
 
-  patientList: Patient[];
-
-  constructor() { }
+  }
 
   ngOnInit() {
 
-    // this.service.get().subscribe(
-    //   patients => this.patientList = patients
-    // );
-
-    this.dataTable = $(this.table.nativeElement);
-    this.dataTable.DataTable();
   }
 
+  public delete(id: number): void {
+    Swal.fire({
+      title: 'Are you sure?',
+      type: 'error',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value) {
+        Swal.fire(
+          'Deleted!',
+          'File was deleted.',
+          'success'
+        )
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire(
+          'Cancelled',
+          'File was not deleted',
+          'error'
+        )
+      }
+    })
+  }
 }

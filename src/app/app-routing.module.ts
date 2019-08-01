@@ -17,7 +17,12 @@ const routes: Routes = [
   {
     path: 'patient',
     component: PatientComponent
-  }
+  },
+  {
+    path: '*',
+    component: HomeComponent
+  },
+
 ];
 
 @NgModule({
