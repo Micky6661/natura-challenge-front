@@ -8,6 +8,8 @@
           routerLink="/patients-form/edit/{{selectedRow.pacientId}}">
           Edit </button>
         <button *ngIf="(selectedRow)" class="btn btn-danger btn-sm" type="button" (click)="delete()"> Delete </button>
+        <button *ngIf="(selectedRow)" class="btn btn-secondary btn-sm" type="button"
+          routerLink="/patients-status/{{selectedRow.pacientId}}"> Status </button>
       </div>
     </div>
     <div class="card-body text-primary">

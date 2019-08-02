@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import Swal from 'sweetalert2';
 import { Visit } from './Visit';
-declare var $;
 
 @Component({
   selector: 'app-visit',
@@ -10,21 +9,12 @@ declare var $;
 })
 export class VisitComponent implements OnInit {
 
-  @ViewChild('dataTable') table;
-  private dataTable: any;
-
   visitList: Visit[];
 
   constructor() { }
 
   ngOnInit() {
 
-    // this.service.get().subscribe(
-    //   patients => this.patientList = patients
-    // );
-
-    this.dataTable = $(this.table.nativeElement);
-    this.dataTable.DataTable();
   }
 
   public delete(id: number): void {
