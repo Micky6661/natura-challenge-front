@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PatientService } from './patient.service';
 import Swal from 'sweetalert2';
+import { Patient } from './Patient';
 
 @Component({
   selector: 'app-patient',
@@ -9,12 +10,26 @@ import Swal from 'sweetalert2';
 })
 export class PatientComponent implements OnInit {
 
-  constructor() {
+  columnDefs = [
+    { headerName: 'Select', field: 'select', sortable: true, checkboxSelection: true },
+    { headerName: 'Name', field: 'name', sortable: true, filter: true },
+    { headerName: 'Last Name', field: 'lastName', sortable: true, filter: true },
+    { headerName: 'Age', field: 'age', sortable: true, filter: true }
+  ];
 
-  }
+  rowData: Patient[];
+  selectedRow: Patient;
+
+  constructor(private service: PatientService) { }
 
   ngOnInit() {
+    this.service.get().subscribe(
+      data => this.rowData = data
+    );
+  }
 
+  public onRowSelected(event: any) {
+    this.selectedRow = event.data;
   }
 
   public delete(id: number): void {

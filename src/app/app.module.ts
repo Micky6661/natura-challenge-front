@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 
 import { PatientComponent } from './pages/patient/patient.component';
 import { VisitComponent } from './pages/visit/visit.component';
@@ -12,6 +13,7 @@ import { FooterComponent } from './utils/footer/footer.component';
 
 import { PatientService } from './pages/patient/patient.service';
 
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { PatientService } from './pages/patient/patient.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    AgGridModule.withComponents([])
   ],
   providers: [
     PatientService
