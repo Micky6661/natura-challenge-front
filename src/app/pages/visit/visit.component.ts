@@ -43,6 +43,7 @@ export class VisitComponent implements OnInit {
       cancelButtonText: 'No, keep it'
     }).then((result) => {
       if (result.value) {
+        this.service.delete(this.selectedRow.visitId);
         Swal.fire(
           'Deleted!',
           'File was deleted.',
