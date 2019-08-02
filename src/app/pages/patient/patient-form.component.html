@@ -1,0 +1,39 @@
+<br>
+<div class="container">
+    <div class="card border-primary mb-3">
+        <div class="card-header">
+            <h2>{{title}}</h2>
+        </div>
+        <div class="card-body">
+            <!-- <form> -->
+            <div *ngIf="(patient)" class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Name :</label>
+                <div class="col-sm-9">
+                    <input type="text" [(ngModel)]="patient.name" class="form-control" placeholder="Name">
+                </div>
+            </div>
+
+            <div *ngIf="(patient)" class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Apellido :</label>
+                <div class="col-sm-9">
+                    <input type="text" [(ngModel)]="patient.lastName" class="form-control" placeholder="Last Name">
+                </div>
+            </div>
+
+            <div *ngIf="(patient)" class="form-group row">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Age:</label>
+                <div class="col-sm-9">
+                    <input type="text" [(ngModel)]="patient.age" class="form-control" placeholder="Age">
+                </div>
+            </div>
+
+            <div class="text-right">
+                <button *ngIf="(isEdit)" type="submit" class="btn btn-success" (click)="submitEdit()"> Edit
+                </button>
+                <button *ngIf="(!isEdit)" type="submit" class="btn btn-success" (click)="submitSave()"> Create
+                </button>
+                <button type="button" class="btn btn-danger" routerLink="/patient"> Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

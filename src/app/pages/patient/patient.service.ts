@@ -30,7 +30,7 @@ export class PatientService {
     return this.http.put<Patient>(this.urlEndPoint + '/' + patient.pacientId, patient, { headers: this.httpHeaders });
   }
 
-  public deleteCliente(id: number) {
+  public delete(id: number) {
     return this.http.delete(this.urlEndPoint + '/' + id, { headers: this.httpHeaders });
   }
 

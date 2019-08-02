@@ -32,7 +32,7 @@ export class PatientComponent implements OnInit {
     this.selectedRow = event.data;
   }
 
-  public delete(id: number): void {
+  public delete(): void {
     Swal.fire({
       title: 'Are you sure?',
       type: 'error',
@@ -41,6 +41,7 @@ export class PatientComponent implements OnInit {
       cancelButtonText: 'No, keep it'
     }).then((result) => {
       if (result.value) {
+        this.service.delete(this.selectedRow.pacientId);
         Swal.fire(
           'Deleted!',
           'File was deleted.',

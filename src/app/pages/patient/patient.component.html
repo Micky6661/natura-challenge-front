@@ -2,9 +2,13 @@
   <h2>Patients</h2>
   <div class="card border-primary mb-3" style="max-width: 90%;">
     <div class="card-header">
-      <button class="btn btn-primary btn-sm" type="button" routerLink="/patients/create"> Create </button>
-      <button class="btn btn-success btn-sm" type="button" routerLink="/patients/create"> Edit </button>
-      <button class="btn btn-danger btn-sm" type="button" routerLink="/patients/create"> Delete </button>
+      <div class="btn-group" role="group">
+        <button class="btn btn-primary btn-sm" type="button" routerLink="/patients-form/create"> Create </button>
+        <button *ngIf="(selectedRow)" class="btn btn-success btn-sm" type="button"
+          routerLink="/patients-form/edit/{{selectedRow.pacientId}}">
+          Edit </button>
+        <button *ngIf="(selectedRow)" class="btn btn-danger btn-sm" type="button" (click)="delete()"> Delete </button>
+      </div>
     </div>
     <div class="card-body text-primary">
       <ag-grid-angular style="width: 100%; height: 500px;" class="ag-theme-balham" [rowData]="rowData"
