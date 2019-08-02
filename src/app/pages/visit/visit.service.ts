@@ -31,7 +31,7 @@ export class VisitService {
     }
 
     public update(visit: Visit) {
-        return this.http.put<Visit>(this.urlEndPoint + '/' + visit.visitId, visit, { headers: this.httpHeaders });
+        return this.http.put<Visit>(this.urlEndPoint, visit, { headers: this.httpHeaders });
     }
 
     public delete(id: number) {

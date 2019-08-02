@@ -13,11 +13,6 @@ import Swal from 'sweetalert2';
 })
 export class PatientStatusComponent implements OnInit {
 
-    dates: string[] = [];
-    pressures: number[] = [];
-    heartRates: number[] = [];
-    values: number[] = [];
-
     chartOption: EChartOption;
 
     constructor(private service: VisitService, private activatedRoute: ActivatedRoute, private router: Router) { }

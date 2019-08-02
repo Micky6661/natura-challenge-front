@@ -27,7 +27,7 @@ export class PatientService {
   }
 
   public update(patient: Patient) {
-    return this.http.put<Patient>(this.urlEndPoint + '/' + patient.pacientId, patient, { headers: this.httpHeaders });
+    return this.http.put<Patient>(this.urlEndPoint, patient, { headers: this.httpHeaders });
   }
 
   public delete(id: number) {

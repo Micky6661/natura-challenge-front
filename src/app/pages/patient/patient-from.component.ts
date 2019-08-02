@@ -37,14 +37,26 @@ export class PatientFormComponent implements OnInit {
         });
     }
 
-    public submitSave(): void {
-        this.service.insert(this.patient);
-        Swal.fire('Saved', 'Record saved successfully', 'success');
+    public async submitSave(): Promise<void> {
+        await this.service.insert(this.patient).toPromise().then(
+            function (ok) {
+                Swal.fire('Saved', 'Record saved successfully', 'success');
+            }, function (error) {
+                Swal.fire('Error', 'Error was ocurred while insert. ' + error, 'error');
+            }
+        );
+        this.router.navigate(['/patient']);
     }
 
-    public submitEdit(): void {
-        this.service.update(this.patient);
-        Swal.fire('Updated', 'Record updated successfully', 'success');
+    public async submitEdit(): Promise<void> {
+        await this.service.update(this.patient).toPromise().then(
+            function (ok) {
+                Swal.fire('Updated', 'Record updated successfully', 'success');
+            }, function (error) {
+                Swal.fire('Error', 'Error was ocurred while insert. ' + error, 'error');
+            }
+        );
+        this.router.navigate(['/patient']);
     }
 
 }

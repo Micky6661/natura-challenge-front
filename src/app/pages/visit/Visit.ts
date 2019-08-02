@@ -6,4 +6,5 @@ export class Visit {
     bloodPressure: number;
     heartRate: number;
     visitDate: Date;
+    observation: string;
 }

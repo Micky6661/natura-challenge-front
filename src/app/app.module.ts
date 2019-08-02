@@ -22,6 +22,7 @@ import { AgGridModule } from 'ag-grid-angular';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FormsModule } from '@angular/forms';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { VisitFormComponent } from './pages/visit/visit-form.component';
 
 
 @NgModule({
@@ -30,7 +31,10 @@ import { NgxEchartsModule } from 'ngx-echarts';
     PatientComponent,
     PatientFormComponent,
     PatientStatusComponent,
+
     VisitComponent,
+    VisitFormComponent,
+
     HomeComponent,
     HeaderComponent,
     FooterComponent
